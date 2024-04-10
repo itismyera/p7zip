@@ -11,7 +11,7 @@
 using namespace NWindows;
 using namespace NRegistry;
 
-#define REG_PATH_7Z TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("7-Zip")
+#define REG_PATH_7Z TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("Zipr")
 
 static const TCHAR *kCUBasePath = REG_PATH_7Z;
 static const TCHAR *kCU_FMPath = REG_PATH_7Z TEXT(STRING_PATH_SEPARATOR) TEXT("FM");

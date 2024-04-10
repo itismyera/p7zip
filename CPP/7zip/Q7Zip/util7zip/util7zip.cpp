@@ -285,13 +285,13 @@ HRESULT Utils7zip::OpenParentArchiveFolder()
     if (folderLink.WasChanged(newFileInfo))
     {
       UString message = MyFormatNew(IDS_WANT_UPDATE_MODIFIED_FILE, 0x03020280, folderLink.RelPath);
-      if (::MessageBoxW(HWND(*this), message, L"7-Zip", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
+      if (::MessageBoxW(HWND(*this), message, L"Zipr", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
       {
         if (OnOpenItemChanged(folderLink.FileIndex, folderLink.FilePath,
             folderLinkPrev.UsePassword, folderLinkPrev.Password) != S_OK)
         {
           ::MessageBoxW(HWND(*this), MyFormatNew(IDS_CANNOT_UPDATE_FILE,
-              0x03020281, fs2us(folderLink.FilePath)), L"7-Zip", MB_OK | MB_ICONSTOP);
+              0x03020281, fs2us(folderLink.FilePath)), L"Zipr", MB_OK | MB_ICONSTOP);
           return S_OK;
         }
       }

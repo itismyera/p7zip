@@ -15,7 +15,7 @@
 using namespace NWindows;
 using namespace NRegistry;
 
-#define REG_PATH_FM TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("7-Zip") TEXT(STRING_PATH_SEPARATOR) TEXT("FM")
+#define REG_PATH_FM TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("Zipr") TEXT(STRING_PATH_SEPARATOR) TEXT("FM")
 
 static const TCHAR *kCUBasePath = REG_PATH_FM;
 static const TCHAR *kCulumnsKeyName = REG_PATH_FM TEXT(STRING_PATH_SEPARATOR) TEXT("Columns");

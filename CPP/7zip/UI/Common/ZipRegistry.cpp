@@ -16,7 +16,7 @@ using namespace NRegistry;
 static NSynchronization::CCriticalSection g_CS;
 #define CS_LOCK NSynchronization::CCriticalSectionLock lock(g_CS);
 
-static const TCHAR *kCuPrefix = TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("7-Zip") TEXT(STRING_PATH_SEPARATOR);
+static const TCHAR *kCuPrefix = TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("Zipr") TEXT(STRING_PATH_SEPARATOR);
 
 static CSysString GetKeyPath(const CSysString &path) { return kCuPrefix + path; }
 

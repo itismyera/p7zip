@@ -775,13 +775,13 @@ void CPanel::MessageBoxInfo(LPCWSTR message, LPCWSTR caption)
 void CPanel::MessageBox(LPCWSTR message, LPCWSTR caption)
   { ::MessageBoxW((HWND)*this, message, caption, MB_OK | MB_ICONSTOP); }
 void CPanel::MessageBox(LPCWSTR message)
-  { MessageBox(message, L"7-Zip"); }
+  { MessageBox(message, L"Zipr"); }
 /* FIXME
 void CPanel::MessageBoxWarning(LPCWSTR message)
-  { ::MessageBoxW(NULL, message, L"7-Zip", MB_OK | MB_ICONWARNING); }
+  { ::MessageBoxW(NULL, message, L"Zipr", MB_OK | MB_ICONWARNING); }
 */
 void CPanel::MessageBoxMyError(LPCWSTR message)
-  { MessageBox(message, L"7-Zip"); }
+  { MessageBox(message, L"Zipr"); }
 
 
 void CPanel::MessageBoxError(HRESULT errorCode, LPCWSTR caption)
@@ -801,11 +801,11 @@ void CPanel::MessageBoxError2Lines(LPCWSTR message, HRESULT errorCode)
 }
 
 void CPanel::MessageBoxError(HRESULT errorCode)
-  { MessageBoxError(errorCode, L"7-Zip"); }
+  { MessageBoxError(errorCode, L"Zipr"); }
 void CPanel::MessageBoxLastError(LPCWSTR caption)
   { MessageBoxError(::GetLastError(), caption); }
 void CPanel::MessageBoxLastError()
-  { MessageBoxLastError(L"7-Zip"); }
+  { MessageBoxLastError(L"Zipr"); }
 
 void CPanel::MessageBoxErrorLang(UINT resourceID)
   { MessageBox(LangString(resourceID)); }
@@ -847,7 +847,7 @@ bool CPanel::IsFSDrivesFolder() const { return IsFolderTypeEqTo("FSDrives"); }
 bool CPanel::IsAltStreamsFolder() const { return IsFolderTypeEqTo("AltStreamsFolder"); }
 bool CPanel::IsArcFolder() const
 {
-  return GetFolderTypeID().IsPrefixedBy_Ascii_NoCase("7-Zip");
+  return GetFolderTypeID().IsPrefixedBy_Ascii_NoCase("Zipr");
 }
 
 UString CPanel::GetFsPath() const
@@ -1125,7 +1125,7 @@ void CPanel::TestArchives()
     extracter.Indices = indices;
     
     UString title = LangString(IDS_PROGRESS_TESTING);
-    UString progressWindowTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+    UString progressWindowTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
     
     extracter.ProgressDialog.CompressingMode = false;
     extracter.ProgressDialog.MainWindow = GetParent();

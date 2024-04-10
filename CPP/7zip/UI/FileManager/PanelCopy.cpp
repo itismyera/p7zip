@@ -183,7 +183,7 @@ HRESULT CPanel::CopyTo(CCopyToOptions &options, const CRecordVector<UInt32> &ind
       title = LangString(titleID);
   }
 
-  UString progressWindowTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+  UString progressWindowTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
   
   extracter.ProgressDialog.MainWindow = GetParent();
   extracter.ProgressDialog.MainTitle = progressWindowTitle;
@@ -265,7 +265,7 @@ HRESULT CPanel::CopyFrom(bool moveMode, const UString &folderPrefix, const UStri
   updater.UpdateCallbackSpec->ProgressDialog = &updater.ProgressDialog;
 
   UString title = LangString(IDS_COPYING);
-  UString progressWindowTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+  UString progressWindowTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
 
   updater.ProgressDialog.MainWindow = GetParent();
   updater.ProgressDialog.MainTitle = progressWindowTitle;

@@ -161,7 +161,7 @@ HRESULT OpenFileFolderPlugin(
 
     UString progressTitle = LangString(IDS_OPENNING);
     t.OpenCallbackSpec->ProgressDialog.MainWindow = parentWindow;
-    t.OpenCallbackSpec->ProgressDialog.MainTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+    t.OpenCallbackSpec->ProgressDialog.MainTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
     t.OpenCallbackSpec->ProgressDialog.MainAddTitle = progressTitle + L' ';
     // FIXME t.OpenCallbackSpec->ProgressDialog.WaitMode = true;
 

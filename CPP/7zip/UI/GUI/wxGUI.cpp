@@ -306,7 +306,7 @@ void testDialog(int num)
 void testMessageBox()
 {
 	int ret = MessageBoxW(0, L"test yes/no/cancel", 
-            L"7-Zip", MB_YESNOCANCEL | MB_ICONQUESTION | MB_TASKMODAL);
+            L"Zipr", MB_YESNOCANCEL | MB_ICONQUESTION | MB_TASKMODAL);
 	if (ret == IDYES) myErrorMsg(wxT("MessageBoxW => IDYES"));
 	else if (ret == IDNO) myErrorMsg(wxT("MessageBoxW => IDNO"));
 	else if (ret == IDCANCEL) myErrorMsg(wxT("MessageBoxW => IDCANCEL"));

@@ -67,7 +67,7 @@ bool g_LVN_ITEMACTIVATE_Support = true;
 
 static void ErrorMessage(LPCWSTR message)
 {
-  MessageBoxW(NULL, message, L"7-Zip", MB_ICONERROR | MB_OK);
+  MessageBoxW(NULL, message, L"Zipr", MB_ICONERROR | MB_OK);
 }
 
 static void ErrorLangMessage(UINT resourceID)
@@ -112,7 +112,7 @@ static int Main2(int argc,TCHAR **argv)
   #endif
   if (commandStrings.Size() == 0)
   {
-    MessageBoxW(0, L"Specify command", L"7-Zip", 0);
+    MessageBoxW(0, L"Specify command", L"Zipr", 0);
     return 0;
   }
 

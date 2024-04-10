@@ -268,7 +268,7 @@ HRESULT HashCalcGUI(
 
   const UString title = LangString(IDS_CHECKSUM_CALCULATING);
 
-  t.ProgressDialog.MainTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+  t.ProgressDialog.MainTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
   t.ProgressDialog.MainAddTitle = title;
   t.ProgressDialog.MainAddTitle.Add_Space();
 

@@ -95,7 +95,7 @@ static CFSTR kMainDll =
 
 #ifdef _WIN32
 
-static LPCTSTR kRegistryPath = TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("7-zip");
+static LPCTSTR kRegistryPath = TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("Zipr");
 static LPCWSTR kProgramPathValue = L"Path";
 static LPCWSTR kProgramPath2Value = L"Path"
   #ifdef _WIN64

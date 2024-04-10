@@ -100,7 +100,7 @@ Favorit
 &Benchmark
 960
 &Hilfethemen
-Ü&ber 7-Zip...
+Ü&ber Zipr...
 1003
 Pfad
 Name

@@ -354,13 +354,13 @@ HRESULT CPanel::OpenParentArchiveFolder()
     if (folderLink.WasChanged(newFileInfo))
     {
       UString message = MyFormatNew(IDS_WANT_UPDATE_MODIFIED_FILE, folderLink.RelPath);
-      if (::MessageBoxW((HWND)*this, message, L"7-Zip", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
+      if (::MessageBoxW((HWND)*this, message, L"Zipr", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
       {
         if (OnOpenItemChanged(folderLink.FileIndex, fs2us(folderLink.FilePath),
             folderLinkPrev.UsePassword, folderLinkPrev.Password) != S_OK)
         {
           ::MessageBoxW((HWND)*this, MyFormatNew(IDS_CANNOT_UPDATE_FILE,
-              fs2us(folderLink.FilePath)), L"7-Zip", MB_OK | MB_ICONSTOP);
+              fs2us(folderLink.FilePath)), L"Zipr", MB_OK | MB_ICONSTOP);
           return S_OK;
         }
       }
@@ -450,13 +450,13 @@ static void StartEditApplication(const UString &path, bool useEditor, HWND windo
 #ifdef _WIN32
   HRESULT res = process.Create(command, GetQuotedString(path), NULL);
   if (res != SZ_OK)
-    ::MessageBoxW(window, LangString(IDS_CANNOT_START_EDITOR), L"7-Zip", MB_OK  | MB_ICONSTOP);
+    ::MessageBoxW(window, LangString(IDS_CANNOT_START_EDITOR), L"Zipr", MB_OK  | MB_ICONSTOP);
   return res;
 #else
   wxString cmd = (const wchar_t *)command;
   long pid = wxExecute(cmd, wxEXEC_ASYNC);
   if (pid) return ;
-  ::MessageBoxW(window, LangString(IDS_CANNOT_START_EDITOR), L"7-Zip", MB_OK  | MB_ICONSTOP);
+  ::MessageBoxW(window, LangString(IDS_CANNOT_START_EDITOR), L"Zipr", MB_OK  | MB_ICONSTOP);
 #endif
 }
 
@@ -513,7 +513,7 @@ void CApp::DiffFiles()
   long pid = wxExecute(cmd, wxEXEC_ASYNC);
   if (pid) return ;
 #endif
-  ::MessageBoxW(_window, LangString(IDS_CANNOT_START_EDITOR), L"7-Zip", MB_OK  | MB_ICONSTOP);
+  ::MessageBoxW(_window, LangString(IDS_CANNOT_START_EDITOR), L"Zipr", MB_OK  | MB_ICONSTOP);
 }
 
 #ifndef _UNICODE
@@ -532,7 +532,7 @@ static void StartApplication(const UString &dir, const UString &path, HWND windo
   ::MessageBoxW(window, 
           // NError::MyFormatMessageW(::GetLastError()),
           L"There is no application associated with the given file name extension",
-          L"7-Zip", MB_OK | MB_ICONSTOP);
+          L"Zipr", MB_OK | MB_ICONSTOP);
 
 }
 
@@ -809,12 +809,12 @@ static THREAD_FUNC_DECL MyThreadFunction(void *param)
     if (tpi->WasChanged(newFileInfo))
     {
       UString message = MyFormatNew(IDS_WANT_UPDATE_MODIFIED_FILE, tpi->RelPath);
-      if (::MessageBoxW(g_HWND, message, L"7-Zip", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
+      if (::MessageBoxW(g_HWND, message, L"Zipr", MB_OKCANCEL | MB_ICONQUESTION) == IDOK)
       {
         if (SendMessage(tpi->Window, kOpenItemChanged, 0, (LONG_PTR)tpi) != 1)
         {
           ::MessageBoxW(g_HWND, MyFormatNew(IDS_CANNOT_UPDATE_FILE,
-              fs2us(tpi->FilePath)), L"7-Zip", MB_OK | MB_ICONSTOP);
+              fs2us(tpi->FilePath)), L"Zipr", MB_OK | MB_ICONSTOP);
           return 0;
         }
       }

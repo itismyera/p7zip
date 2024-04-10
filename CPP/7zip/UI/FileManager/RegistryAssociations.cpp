@@ -20,7 +20,7 @@ namespace NRegistryAssociations {
   
 static NSynchronization::CCriticalSection g_CriticalSection;
 
-#define REG_PATH_FM TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("7-Zip") TEXT(STRING_PATH_SEPARATOR) TEXT("FM")
+#define REG_PATH_FM TEXT("Software") TEXT(STRING_PATH_SEPARATOR) TEXT("Zipr") TEXT(STRING_PATH_SEPARATOR) TEXT("FM")
 
 /*
 

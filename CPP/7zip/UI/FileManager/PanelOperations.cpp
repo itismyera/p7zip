@@ -96,7 +96,7 @@ HRESULT CThreadFolderOperations::DoOperation(CPanel &panel, const UString &progr
 
 
   ProgressDialog.MainWindow = panel._mainWindow; // panel.GetParent()
-  ProgressDialog.MainTitle = L"7-Zip"; // LangString(IDS_APP_TITLE);
+  ProgressDialog.MainTitle = L"Zipr"; // LangString(IDS_APP_TITLE);
   ProgressDialog.MainAddTitle = progressTitle + L' ';
 
   RINOK(Create(progressTitle, ProgressDialog.MainWindow));

@@ -21,7 +21,7 @@ namespace NRegistry {
 
 #define ERROR_SET_VALUE (E_INVALIDARG) // FIXME
 #define ERROR_GET_VALUE (E_INVALIDARG) // FIXME
-#define PROGRAM_NAME L"p7zip"
+#define PROGRAM_NAME L"Zipr"
 
 static wxConfig * g_config = 0;
 static int        g_config_ref = 0;

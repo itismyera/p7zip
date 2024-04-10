@@ -553,7 +553,7 @@ void createAboutDialog(void)
 
     UString msg;
   
-    msg = L"7-Zip is free software";
+    msg = L"";
     info.SetDescription((const wchar_t *)msg);
 
 
@@ -564,11 +564,11 @@ void createAboutDialog(void)
     version += L']';
     #endif
 
-    info.SetName(_("P7ZIP"));
+    info.SetName(_("Zipr"));
     // info.SetVersion(wxString(MY_VERSION, wxConvUTF8));
     info.SetVersion((const wchar_t *)version);
     info.SetCopyright(wxString(MY_COPYRIGHT, wxConvUTF8));
-    info.SetWebSite(_T("www.7-zip.org"));
+    info.SetWebSite(_T("www.Zipr.cn"));
 
     wxAboutBox(info);
 }

@@ -927,7 +927,7 @@ void CApp::RefreshTitle(bool always)
   }	
 #endif
   if (path.IsEmpty())
-    path = L"7-Zip"; // LangString(IDS_APP_TITLE);
+    path = L"Zipr"; // LangString(IDS_APP_TITLE);
   if (!always && path == PrevTitle)
     return;
   PrevTitle = path;

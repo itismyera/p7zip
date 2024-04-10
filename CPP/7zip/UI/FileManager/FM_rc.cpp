@@ -616,7 +616,7 @@ void rc_MyLoadMenu(HWND hWnd)
 	{
 		m->Append(IDM_HELP_CONTENTS, _T("&Contents...\tF1"));
 		m->AppendSeparator();
-		m->Append(IDM_ABOUT, _T("&About 7-Zip..."));
+		m->Append(IDM_ABOUT, _T("&About Zipr..."));
 	}
 
 	wxMenuBar *menuBar = new wxMenuBar;

@@ -430,7 +430,7 @@ static const CSwitchForm kSwitchForms[kNumSwitches] =
 
 static void ErrorMessage(const wchar_t *s)
 {
-  MessageBoxW(0, s, L"7-Zip", MB_ICONERROR);
+  MessageBoxW(0, s, L"Zipr", MB_ICONERROR);
 }
 
 
