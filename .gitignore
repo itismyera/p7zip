@@ -1,0 +1,11 @@
+
+*.obj
+*.exe
+*.res
+*.dll
+*.pch
+*.exp
+*.lib
+*.app
+*.o
+/bin
