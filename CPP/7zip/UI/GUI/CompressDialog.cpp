@@ -1109,7 +1109,13 @@ void CCompressDialog::SetEncryptionMethod()
     }
     _encryptionMethod.AddString(TEXT("ZipCrypto"));
     _encryptionMethod.AddString(TEXT("AES-256"));
-    _encryptionMethod.SetCurSel(encryptionMethod.IsPrefixedBy_Ascii_NoCase("aes") ? 1 : 0);
+    int sel = encryptionMethod.IsPrefixedBy_Ascii_NoCase("aes") ? 1 : 0;
+    _encryptionMethod.AddString(TEXT("SM4"));
+    if (encryptionMethod.IsPrefixedBy_Ascii_NoCase("sm"))
+    {
+      sel = 2;
+    }
+    _encryptionMethod.SetCurSel(sel);
   }
 }
 
@@ -1135,6 +1141,10 @@ UString CCompressDialog::GetEncryptionMethodSpec()
     return UString();
   UString result;
   _encryptionMethod.GetText(result);
+  if (result.IsPrefixedBy_Ascii_NoCase("sm"))
+  {
+    result = (L"AES-256");
+  }
   result.RemoveChar(L'-');
   return result;
 }
