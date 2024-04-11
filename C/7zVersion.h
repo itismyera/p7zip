@@ -8,7 +8,7 @@
 #undef MY_VERSION_COPYRIGHT_DATE
 #define MY_AUTHOR_NAME "LRH"
 #define MY_COPYRIGHT_PD "LRH"
-#define MY_COPYRIGHT_CR "Copyright (c) Beijing Yipin Innovation Technology Co., Ltd"
+#define MY_COPYRIGHT_CR "Copyright (c) 2023 Beijing Yipin Innovation Technology Co., Ltd"
 
 #ifdef USE_COPYRIGHT_CR
   #define MY_COPYRIGHT MY_COPYRIGHT_CR

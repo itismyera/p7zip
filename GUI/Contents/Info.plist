@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>7zFM</string>
+	<string>ZiprFM</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -360,28 +360,28 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>7zFM</string>
+	<string>ZiprFM</string>
 	<key>CFBundleIconFile</key>
-	<string>p7zip</string>
+	<string>Zipr</string>
 	<key>CFBundleIdentifier</key>
-	<string>p7zip.7zFM</string>
+	<string>Zipr.ZiprFM</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>7zFM</string>
+	<string>ZiprFM</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.3.2</string>
+	<string>6.0.1</string>
 	<key>CFBundleSignature</key>
-	<string>aONe</string>
+	<string>YP</string>
 	<key>CFBundleVersion</key>
 	<string>57</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2009-2010 aONe</string>
+	<string>Copyright (c) 2023 Beijing Yipin Innovation Technology Co., Ltd</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://p7zip.sourceforge.net</string>
+	<string>https://www.Zipr.cn</string>
 </dict>
 </plist>

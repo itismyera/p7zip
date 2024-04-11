@@ -38,18 +38,18 @@ common:
 	$(MKDIR) bin
 
 app: common 7zFM 7zG 7z sfx
-	rm -fr               p7zip.app
-	$(MKDIR)             p7zip.app
-	cp -rp GUI/Contents  p7zip.app/
-	$(MKDIR)             p7zip.app/Contents
-	$(MKDIR)             p7zip.app/Contents/MacOS
-	cp bin/7zFM_do_not_use  p7zip.app/Contents/MacOS/
-	cp bin/7zG           p7zip.app/Contents/MacOS/
-	cp bin/7z.so         p7zip.app/Contents/MacOS/
-	cp bin/7zCon.sfx     p7zip.app/Contents/MacOS/
-	cp -rp bin/Codecs    p7zip.app/Contents/MacOS/
-	cp -rp GUI/Lang      p7zip.app/Contents/MacOS/
-	cp -rp DOC/MANUAL    p7zip.app/Contents/MacOS/help
+	rm -fr               Zipr.app
+	$(MKDIR)             Zipr.app
+	cp -rp GUI/Contents  Zipr.app/
+	$(MKDIR)             Zipr.app/Contents
+	$(MKDIR)             Zipr.app/Contents/MacOS
+	cp bin/ZiprFM  Zipr.app/Contents/MacOS/
+	cp bin/7zG           Zipr.app/Contents/MacOS/
+	cp bin/7z.so         Zipr.app/Contents/MacOS/
+	cp bin/7zCon.sfx     Zipr.app/Contents/MacOS/
+	cp -rp bin/Codecs    Zipr.app/Contents/MacOS/
+	cp -rp GUI/Lang      Zipr.app/Contents/MacOS/
+	cp -rp DOC/MANUAL    Zipr.app/Contents/MacOS/help
 
 LangAndHelp:
 	cd bin ; rm -f Lang ; ln -s ../GUI/Lang   .
@@ -57,7 +57,7 @@ LangAndHelp:
 
 clean: clean_C
 	rm -fr bin
-	rm -fr p7zip.app
+	rm -fr Zipr.app
 	rm -f  Lang
 	rm -fr CPP/7zip/P7ZIP.*
 	rm -fr CPP/7zip/CMAKE/P7ZIP.*
