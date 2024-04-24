@@ -11,8 +11,8 @@ extern UString g_LangID;
 
 struct CIDLangPair
 {
-  UInt32 ControlID;
   UInt32 LangID;
+  UInt32 ControlID;
 };
 
 void ReloadLang();

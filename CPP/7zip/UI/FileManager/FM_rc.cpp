@@ -486,39 +486,39 @@ void rc_MyLoadMenu(HWND hWnd)
 	wxMenu *m;
 	wxMenu *m_file = m = new wxMenu;
 	{
-		m->Append(IDM_OPEN, _T("&Open"));  // FIXME "&Open\tEnter" - don't use Enter to support combobox enter ...
-		m->Append(IDM_OPEN_INSIDE,_T("Open &Inside\tCtrl+PgDn"));
-		m->Append(IDM_OPEN_INSIDE_ONE,_T("Open Inside *"));
-		m->Append(IDM_OPEN_INSIDE_PARSER,_T("Open Inside #"));
-		m->Append(IDM_OPEN_OUTSIDE,_T("Open O&utside\tShift+Enter"));
-		m->Append(IDM_FILE_VIEW,_T("&View\tF3"));
-		m->Append(IDM_FILE_EDIT,_T("&Edit\tF4"));
+		m->Append(IDM_OPEN, wxString(LangString(IDM_OPEN)));  // FIXME "&Open\tEnter" - don't use Enter to support combobox enter ...
+		m->Append(IDM_OPEN_INSIDE,wxString(LangString(IDM_OPEN_INSIDE)));
+		m->Append(IDM_OPEN_INSIDE_ONE,wxString(LangString(IDM_OPEN_INSIDE)+_T("*")));
+		m->Append(IDM_OPEN_INSIDE_PARSER,wxString(LangString(IDM_OPEN_INSIDE)+_T("#")));
+		m->Append(IDM_OPEN_OUTSIDE,wxString(LangString(IDM_OPEN_OUTSIDE)));
+		m->Append(IDM_FILE_VIEW,wxString(LangString(IDM_FILE_VIEW)));
+		m->Append(IDM_FILE_EDIT,wxString(LangString(IDM_FILE_EDIT)));
 		m->AppendSeparator();
-		m->Append(IDM_RENAME,_T("Rena&me\tF2"));
-		m->Append(IDM_COPY_TO,_T("&Copy To...\tF5"));
-		m->Append(IDM_MOVE_TO,_T("&Move To...\tF6"));
-		m->Append(IDM_DELETE,_T("&Delete\tDel"));
+		m->Append(IDM_RENAME,wxString(LangString(IDM_RENAME)));
+		m->Append(IDM_COPY_TO,wxString(LangString(IDM_COPY_TO)));
+		m->Append(IDM_MOVE_TO,wxString(LangString(IDM_MOVE_TO)));
+		m->Append(IDM_DELETE,wxString(LangString(IDM_DELETE)));
 		m->AppendSeparator();
-		m->Append(IDM_SPLIT,_T("&Split file..."));
-		m->Append(IDM_COMBINE,_T("Com&bine files..."));
+		m->Append(IDM_SPLIT,wxString(LangString(IDM_SPLIT)));
+		m->Append(IDM_COMBINE,wxString(LangString(IDM_COMBINE)));
 		m->AppendSeparator();
-		m->Append(IDM_PROPERTIES,_T("P&roperties\tAlt+Enter"));
-		m->Append(IDM_COMMENT,_T("Comme&nt\tCtrl+Z"));
+		m->Append(IDM_PROPERTIES,wxString(LangString(IDM_PROPERTIES)));
+		m->Append(IDM_COMMENT,wxString(LangString(IDM_COMMENT)));
 
 		wxMenu * subMenuCRC = new wxMenu;
 		subMenuCRC->Append(IDM_CRC32   ,_T("CRC-32"));
-		subMenuCRC->Append(IDM_CRC64   ,_T("CRC-64"));
-		subMenuCRC->Append(IDM_SHA1    ,_T("SHA-1"));
-		subMenuCRC->Append(IDM_SHA256  ,_T("SHA-256"));
-		subMenuCRC->Append(IDM_HASH_ALL,_T("*"));
+        subMenuCRC->Append(IDM_CRC64   ,_T("CRC-64"));
+        subMenuCRC->Append(IDM_SHA1    ,_T("SHA-1"));
+        subMenuCRC->Append(IDM_SHA256  ,_T("SHA-256"));
+        subMenuCRC->Append(IDM_HASH_ALL,_T("*"));
 		m->AppendSubMenu(subMenuCRC,_T("CRC"));
 
-		m->Append(IDM_DIFF,_T("Di&ff"));
+		m->Append(IDM_DIFF,wxString(LangString(IDM_DIFF)));
 		m->AppendSeparator();
-		m->Append(IDM_CREATE_FOLDER,_T("Create Folder\tF7"));
-		m->Append(IDM_CREATE_FILE,_T("Create File\tCtrl+N"));
+		m->Append(IDM_CREATE_FOLDER,wxString(LangString(IDM_CREATE_FOLDER)));
+		m->Append(IDM_CREATE_FILE,wxString(LangString(IDM_CREATE_FILE)));
 		m->AppendSeparator();
-		m->Append(IDEXIT,_T("E&xit\tAlt+F4"));   
+		m->Append(IDEXIT,wxString(LangString(IDEXIT)));
 	}
 	wxMenu *m_edit = m = new wxMenu;
 	{
@@ -526,11 +526,11 @@ void rc_MyLoadMenu(HWND hWnd)
 		// m->Append(IDM_EDIT_COPY, _T("&Copy\tCtrl+C"))->Enable(true);            // GRAYED
 		// m->Append(IDM_EDIT_PASTE, _T("&Paste\tCtrl+V"))->Enable(true);          // GRAYED
 		// m->AppendSeparator();
-		m->Append(IDM_SELECT_ALL, _T("Select &All\tShift+[Grey +]")); 
-		m->Append(IDM_DESELECT_ALL, _T("Deselect All\tShift+[Grey -]")); 
-		m->Append(IDM_INVERT_SELECTION, _T("&Invert Selection\tGrey *"));   
-		m->Append(IDM_SELECT, _T("Select...\tGrey +"));           
-		m->Append(IDM_DESELECT, _T("Deselect...\tGrey -"));        
+		m->Append(IDM_SELECT_ALL, wxString(LangString(IDM_SELECT_ALL)));
+		m->Append(IDM_DESELECT_ALL, wxString(LangString(IDM_DESELECT_ALL)));
+		m->Append(IDM_INVERT_SELECTION, wxString(LangString(IDM_INVERT_SELECTION)));
+		m->Append(IDM_SELECT, wxString(LangString(IDM_SELECT)));
+		m->Append(IDM_DESELECT, wxString(LangString(IDM_DESELECT)));
 // FIXME		m->Append(IDM_SELECT_BY_TYPE, _T("Select by Type\tAlt+[Grey+]")); 
 // FIXME		m->Append(IDM_DESELECT_BY_TYPE, _T("Deselect by Type\tAlt+[Grey -]")); 
 	}
@@ -563,12 +563,12 @@ void rc_MyLoadMenu(HWND hWnd)
 		m->AppendSeparator();
 */
 		// NO "/" is used on Unix Path ... m->Append(IDM_OPEN_ROOT_FOLDER, _T("Open Root Folder\t" STRING_PATH_SEPARATOR));        
-		m->Append(IDM_OPEN_ROOT_FOLDER, _T("Open Root Folder\t" "\\"));        
+		m->Append(IDM_OPEN_ROOT_FOLDER, wxString(LangString(IDM_OPEN_ROOT_FOLDER)));
 
-		m->Append(IDM_OPEN_PARENT_FOLDER, _T("Up One Level\tBackspace"));
-		m->Append(IDM_FOLDERS_HISTORY, _T("Folders History...\tAlt+F12"));
+		m->Append(IDM_OPEN_PARENT_FOLDER, wxString(LangString(IDM_OPEN_PARENT_FOLDER)));
+		m->Append(IDM_FOLDERS_HISTORY, wxString(LangString(IDM_FOLDERS_HISTORY)));
 		m->AppendSeparator();
-		m->Append(IDM_VIEW_REFRESH, _T("&Refresh\tCtrl+R"));
+		m->Append(IDM_VIEW_REFRESH, wxString(LangString(IDM_VIEW_REFRESH)));
 	}
 	wxMenu *m_favorites = m = new wxMenu;
 	{
@@ -610,11 +610,11 @@ void rc_MyLoadMenu(HWND hWnd)
 	wxMenu *m_tools = m = new wxMenu;
 	{
 //		m->Append(IDM_OPTIONS, _T("&Options..."));
-		m->Append(IDM_BENCHMARK, _T("&Benchmark"));
+		m->Append(IDM_BENCHMARK, wxString(LangString(IDM_BENCHMARK)));
 	}
 	wxMenu *m_help = m = new wxMenu;
 	{
-		m->Append(IDM_HELP_CONTENTS, _T("&Contents...\tF1"));
+		m->Append(IDM_HELP_CONTENTS, wxString(LangString(IDM_HELP_CONTENTS)));
 		m->AppendSeparator();
 		m->Append(IDM_ABOUT, _T("&About Zipr..."));
 	}

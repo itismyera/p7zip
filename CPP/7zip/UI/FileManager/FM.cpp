@@ -726,6 +726,7 @@ int Main1(int argc,TCHAR **argv)
   if (!InitInstance (0)) 
     return FALSE;
 
+  LoadLangOneTime();
   MyLoadMenu();
 
   // FIXME : install Accelerators ?

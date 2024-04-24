@@ -69,12 +69,12 @@ struct CStringLangPair
 
 static CStringLangPair kStringLangPairs[] = 
 {
-  { L"&File",  0x03000102 },
-  { L"&Edit",  0x03000103 },
-  { L"&View",  0x03000104 },
-  { L"&Bookmarks", 0x03000107 },
-  { L"&Tools", 0x03000105 },
-  { L"&Help",  0x03000106 },
+  { L"&File",  500 },
+  { L"&Edit",  501 },
+  { L"&View",  502 },
+  { L"F&avorites", 503 },
+  { L"&Tools", 504 },
+  { L"&Help",  505 },
 };
 
 UINT32 kAddToFavoritesLangID = 0x03000710;
@@ -568,6 +568,9 @@ void createAboutDialog(void)
     // info.SetVersion(wxString(MY_VERSION, wxConvUTF8));
     info.SetVersion((const wchar_t *)version);
     info.SetCopyright(wxString(MY_COPYRIGHT, wxConvUTF8));
+
+    UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
+
     info.SetWebSite(_T("www.Zipr.cn"));
 
     wxAboutBox(info);
