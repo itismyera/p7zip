@@ -616,7 +616,8 @@ void rc_MyLoadMenu(HWND hWnd)
 	{
 		m->Append(IDM_HELP_CONTENTS, wxString(LangString(IDM_HELP_CONTENTS)));
 		m->AppendSeparator();
-		m->Append(IDM_ABOUT, _T("&About Zipr..."));
+		m->Append(IDM_ABOUT, wxString(LangString(IDM_ABOUT)));
+        m->Append(IDM_ACTIVATE, wxString(LangString(IDB_ABOUT_ACTIVATION)));
 	}
 
 	wxMenuBar *menuBar = new wxMenuBar;
@@ -813,6 +814,16 @@ static CStringTable g_stringTable[] =
   { IDS_PROP_HARD_LINK    ,L"Hard Link" },
   { IDS_PROP_INODE        ,L"iNode" },
   { IDS_PROP_STREAM_ID    ,L"Stream ID" },
+
+    { IDS_ACTIVATE_SOFTWARE         ,L"Activate Software"},
+    { IDS_ACTIVATE_SOFTWARE_NAME1    ,L"User Name:"},
+    { IDS_ACTIVATE_SOFTWARE_NAME2    ,L"Activation Code:"},
+    { IDS_ACTIVATE_SOFTWAR_DEFAULT_NAME    ,L""},
+    { IDS_ACTIVATE_SOFTWAR_ERROR1   ,L"Error Activate software"},
+    { IDS_ACTIVATE_SOFTWAR_ERROR2   ,L"Activate software Success"},
+    { IDS_ACTIVATE_SOFTWAR_ERROR3   ,L"ActivateCode:"},
+    { IDS_ACTIVATE_SOFTWAR_ERROR4   ,L"Authorization period until:"},
+    { IDB_ABOUT_ACTIVATION   ,L"Activate period until:"},
  
 	{ 0 , 0 }
 };

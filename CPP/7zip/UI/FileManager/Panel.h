@@ -276,6 +276,7 @@ public:
   void CreateFile();
   bool CorrectFsPath(const UString &path, UString &result);
   // bool IsPathForPlugin(const UString &path);
+  void ActivateSoftware();
 
 private:
 

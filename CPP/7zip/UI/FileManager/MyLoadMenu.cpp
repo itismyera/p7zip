@@ -145,6 +145,8 @@ static CIDLangPair kIDLangPairs[] =
   
   { IDM_HELP_CONTENTS, 0x03000610 },
   { IDM_ABOUT, 0x03000620 },
+  { IDM_ACTIVATE, 0x03000630 },
+    
 
   { 12111         , 0x03000710 }, // FIXME kAddToFavoritesLangID
   { 12112         , 0x03000451 } // FIXME kToolbarsLangID
@@ -534,6 +536,7 @@ bool ExecuteFileCommand(int id)
     case IDM_COMMENT: g_App.Comment(); break;
     case IDM_CREATE_FOLDER: g_App.CreateFolder(); break;
     case IDM_CREATE_FILE: g_App.CreateFile(); break;
+    case IDB_ABOUT_ACTIVATION: g_App.ActivateSoftware(); break;
     #if 0 // FIXME #ifndef UNDER_CE
     case IDM_LINK: g_App.Link(); break;
     #endif
@@ -711,6 +714,11 @@ bool OnMenuCommand(HWND hWnd, int id)
       */
       createAboutDialog();
       break;
+    }
+    case IDM_ACTIVATE:
+    {
+       createAboutDialog();
+       break;
     }
     default:
     {

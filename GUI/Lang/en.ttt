@@ -1,5 +1,5 @@
 ﻿;!@Lang2@!UTF-8!
-; 15.00 : 2015-03-29 : Igor Pavlov
+; 6.0.0 : 2023-11-03 : LRH
 ;
 ;
 ;
@@ -493,3 +493,13 @@ Hard Link
 File Symbolic Link
 Directory Symbolic Link
 Directory Junction
+7800
+Activate Software
+User Name:
+Activation Code:
+
+Error Activate software
+Activate software Success
+ActivateCode:
+Authorization period until:
+Activate

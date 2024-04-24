@@ -218,6 +218,7 @@ public:
 
   void CreateFolder() { GetFocusedPanel().CreateFolder(); }
   void CreateFile() { GetFocusedPanel().CreateFile(); }
+  void ActivateSoftware() { GetFocusedPanel().ActivateSoftware(); }
 
   // Edit
   void EditCut() { GetFocusedPanel().EditCut(); }

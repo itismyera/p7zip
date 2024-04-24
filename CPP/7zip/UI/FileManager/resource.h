@@ -92,7 +92,8 @@
 #define IDM_BENCHMARK2           902
 
 #define IDM_HELP_CONTENTS        960
-#define IDM_ABOUT                5014  /* FIXME 961   5014 = wxID_ABOUT */
+#define IDM_ABOUT                961  /* FIXME 961   5014 = wxID_ABOUT */
+#define IDM_ACTIVATE             962
 
 #define IDS_OPTIONS                     2100
 
@@ -173,3 +174,13 @@
 #define IDS_COMBINE_SELECT_ONE_FILE     7403
 #define IDS_COMBINE_CANT_DETECT_SPLIT_FILE 7404
 #define IDS_COMBINE_CANT_FIND_MORE_THAN_ONE_PART 7405
+
+#define IDS_ACTIVATE_SOFTWARE                 7800
+#define IDS_ACTIVATE_SOFTWARE_NAME1           7801
+#define IDS_ACTIVATE_SOFTWARE_NAME2           7802
+#define IDS_ACTIVATE_SOFTWAR_DEFAULT_NAME     7803
+#define IDS_ACTIVATE_SOFTWAR_ERROR1           7804
+#define IDS_ACTIVATE_SOFTWAR_ERROR2           7805
+#define IDS_ACTIVATE_SOFTWAR_ERROR3           7806
+#define IDS_ACTIVATE_SOFTWAR_ERROR4           7807
+#define IDB_ABOUT_ACTIVATION                  7808

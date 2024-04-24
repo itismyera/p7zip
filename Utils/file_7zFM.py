@@ -53,6 +53,8 @@ files_cpp=[
  'CPP/7zip/UI/FileManager/ClassDefs.cpp',
  'CPP/7zip/UI/FileManager/ComboDialog.cpp',
  'CPP/7zip/UI/FileManager/ComboDialog_rc.cpp',
+ 'CPP/7zip/UI/FileManager/ComboDialog2.cpp',
+ 'CPP/7zip/UI/FileManager/ComboDialog2_rc.cpp',
  'CPP/7zip/UI/FileManager/CopyDialog.cpp',
  'CPP/7zip/UI/FileManager/CopyDialog_rc.cpp',
  'CPP/7zip/UI/FileManager/ExtractCallback.cpp',

@@ -11,6 +11,7 @@
 #include "../../../Windows/PropVariant.h"
 
 #include "ComboDialog.h"
+#include "ComboDialog2.h"
 
 #include "FSFolder.h"
 #include "FormatUtils.h"
@@ -472,6 +473,84 @@ void CPanel::CreateFile()
   if (!_mySelectMode)
     state.SelectedNames.Clear();
   state.FocusedName = newName;
+  state.SelectFocused = true;
+  RefreshListCtrl(state);
+}
+
+void CPanel::ActivateSoftware()
+{
+  if (!CheckBeforeUpdate(IDS_ACTIVATE_SOFTWAR_ERROR1))
+    return;
+
+  CDisableTimerProcessing disableTimerProcessing2(*this);
+  CSelectedState state;
+  SaveSelectedState(state);
+  CComboDialog2 dlg;
+  LangString(IDS_ACTIVATE_SOFTWARE, dlg.Title);
+  LangString(IDS_ACTIVATE_SOFTWARE_NAME1, dlg.Static1);
+  LangString(IDS_ACTIVATE_SOFTWAR_DEFAULT_NAME, dlg.Value1);
+  LangString(IDS_ACTIVATE_SOFTWARE_NAME2, dlg.Static2);
+  LangString(IDS_ACTIVATE_SOFTWAR_DEFAULT_NAME, dlg.Value2);
+
+  if (dlg.Create(GetParent()) != IDOK)
+    return;
+
+  CDisableNotify disableNotify(*this);
+  
+  UString userName = dlg.Value1;
+  UString activateCode = dlg.Value2;
+//  UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
+//  fileName += "reg.txt";
+//
+//  if(userName.IsEmpty() || activateCode.IsEmpty())
+//  {
+//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
+//    return;
+//  }
+//
+//  DWORD dwSize = 128;
+//  char* bufferCode = new char[dwSize + 1];
+//  WideCharToMultiByte(CP_ACP, 0, activateCode, -1, bufferCode, dwSize+1, NULL, NULL);
+//
+//  char* bufferUserName = new char[dwSize + 1];
+//  WideCharToMultiByte(CP_ACP, 0, userName, -1, bufferUserName, dwSize+1, NULL, NULL);
+//
+//  bool isActiveCodeValid = IsActiveCodeValid(bufferCode, bufferUserName);
+//  delete[] bufferCode;
+//  delete[] bufferUserName;
+//  if (!isActiveCodeValid)
+//  {
+//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
+//    return;
+//  }
+//
+//  HANDLE hFile = ::CreateFileW(fileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+//  if (hFile == INVALID_HANDLE_VALUE)
+//  {
+//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
+//    return;
+//  }
+//
+//  DWORD dwWritten;
+//  BOOL bResult = WriteFile(hFile, activateCode, wcslen(activateCode) * sizeof(WCHAR), &dwWritten, NULL);
+//  CloseHandle(hFile);
+//  if (bResult)
+//  {
+//    MessageBoxW(0, LangString(IDS_ACTIVATE_SOFTWAR_ERROR2), L"Zipr", 0);
+//  }
+//  else
+//  {
+//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
+//    return;
+//  }
+
+  int pos = userName.Find(WCHAR_PATH_SEPARATOR);
+  if (pos >= 0)
+      userName.DeleteFrom((unsigned)pos);
+  if (!_mySelectMode)
+    state.SelectedNames.Clear();
+  state.FocusedName = userName;
+//  state.FocusedName_Defined = true;
   state.SelectFocused = true;
   RefreshListCtrl(state);
 }
