@@ -263,6 +263,10 @@ ComboDialog.o : ../../../../CPP/7zip/UI/FileManager/ComboDialog.cpp
 	$(CXX) $(CXXFLAGS) ../../../../CPP/7zip/UI/FileManager/ComboDialog.cpp
 ComboDialog_rc.o : ../../../../CPP/7zip/UI/FileManager/ComboDialog_rc.cpp
 	$(CXX) $(CXXFLAGS) ../../../../CPP/7zip/UI/FileManager/ComboDialog_rc.cpp
+ComboDialog2.o : ../../../../CPP/7zip/UI/FileManager/ComboDialog2.cpp
+	$(CXX) $(CXXFLAGS) ../../../../CPP/7zip/UI/FileManager/ComboDialog2.cpp
+ComboDialog2_rc.o : ../../../../CPP/7zip/UI/FileManager/ComboDialog2_rc.cpp
+	$(CXX) $(CXXFLAGS) ../../../../CPP/7zip/UI/FileManager/ComboDialog2_rc.cpp
 CopyDialog.o : ../../../../CPP/7zip/UI/FileManager/CopyDialog.cpp
 	$(CXX) $(CXXFLAGS) ../../../../CPP/7zip/UI/FileManager/CopyDialog.cpp
 CopyDialog_rc.o : ../../../../CPP/7zip/UI/FileManager/CopyDialog_rc.cpp
@@ -480,6 +484,8 @@ OBJS=\
  ClassDefs.o \
  ComboDialog.o \
  ComboDialog_rc.o \
+ ComboDialog2.o \
+ ComboDialog2_rc.o \
  CopyDialog.o \
  CopyDialog_rc.o \
  ExtractCallback.o \

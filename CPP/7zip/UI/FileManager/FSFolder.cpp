@@ -1008,29 +1008,6 @@ STDMETHODIMP CFSFolder::CreateFileW(const wchar_t *name, AString contents, IProg
   return S_OK;
 }
 
-STDMETHODIMP CFSFolder::ReadFile(const wchar_t *name, AString &contents, IProgress * /* progress */)
-{
-  FString absPath;
-  GetAbsPath(name, absPath);
-    
-  NIO::CInFile file;
-  if (!file.Open(absPath))
-        return ::GetLastError();
-  UInt64 len;
-  if (!file.GetLength(len))
-      return ::GetLastError();
-  if (len >= (1 << 28))
-      return ::GetLastError();
-  char *p = contents.GetBuf((unsigned)(size_t)len);
-  UInt32 processedSize;
-  file.Read(p, (UInt32)len, processedSize);
-  contents.ReleaseBuf_CalcLen((unsigned)(size_t)len);
-  if (processedSize != len)
-      return ::GetLastError();
-  file.Close();
-  return S_OK;
-}
-
 STDMETHODIMP CFSFolder::Rename(UInt32 index, const wchar_t *newName, IProgress * /* progress */)
 {
   if (index >= (UInt32)Files.Size())
