@@ -41,6 +41,9 @@ typedef wxMenuBar * HMENU;
 #include "PluginInterface.h"
 
 #include "../../MyVersion.h"
+#include "../../../Windows/FileIO.h"
+#include "../../../Windows/FileName.h"
+#include "../../../../C/aesCode.h"
 
 static const UINT kOpenBookmarkMenuID = 730;
 static const UINT kSetBookmarkMenuID = 740;
@@ -52,6 +55,7 @@ static LPCWSTR kFMHelpTopic = L"fm/index.htm";
 extern void OptionsDialog(HWND hwndOwner, HINSTANCE hInstance);
 
 using namespace NWindows;
+using namespace NFile;
 
 enum
 {
@@ -549,6 +553,67 @@ bool ExecuteFileCommand(int id)
 
 #define LLL_(quote) L##quote
 #define LLL(quote) LLL_(quote)
+#define  AES_ENC_MAX_LEN    (512)
+
+int getEndDate(char* activeCode, char* outDate)
+{
+    int sucess = 1;
+    uint16_t i=0;
+    char in[AES_ENC_MAX_LEN];
+    memset(in, 0x00, AES_ENC_MAX_LEN);
+    uint16_t length1 = strlen(activeCode);
+    uint16_t length2 = length1/2;
+    uint8_t activeU8[AES_ENC_MAX_LEN];
+
+    for (i = 0; i < length2; i++) {
+        sscanf(&activeCode[i * 2], "%2hhx", &activeU8[i]);
+    }
+
+    for (i = 0; i < length2; i++) {
+        printf("%02x", activeU8[i]);
+    }
+    // printf("\n");
+    // printf("origin info = %s \n", activeU8);
+    memset(in, 0x00, AES_ENC_MAX_LEN);
+    bool isSucess = DecryptCipherTxtToData(activeU8,(uint8_t*)in,length2);
+    if (!isSucess) {
+        sucess = 0;
+        return sucess;
+    }
+    // printf("\n");
+    // printf("input info = %s \n", in);
+    
+    // split char*
+    const char delimiter[2] = "|";
+    char* token[10];
+    int index = 0;
+    token[index] = strtok(in, delimiter);
+    
+    while (token[index] != NULL) {
+        // printf("spilt char* = %s, %d\n", token[index], index);
+        index ++ ;
+        token[index] = strtok(NULL, delimiter);
+    }
+    // printf("%d\n", index);
+    if (index != 4) {
+        sucess = 0;
+        return sucess;
+    }
+    double endDate = strtod(token[2], NULL)*100;
+    // printf("%f\n", endDate);
+    if (endDate <= 0) {
+        sucess = 0;
+        return sucess;
+    }
+    // timestamp to date
+    time_t timestamp = endDate;
+    struct tm* timeinfo;
+    
+    timeinfo = localtime(&timestamp);
+    strftime(outDate, 80, "%Y-%m-%d", timeinfo);
+    // printf("end date: %s\n", outDate);
+    return sucess;
+}
 
 void createAboutDialog(void)
 {
@@ -571,11 +636,38 @@ void createAboutDialog(void)
     // info.SetVersion(wxString(MY_VERSION, wxConvUTF8));
     info.SetVersion((const wchar_t *)version);
     info.SetCopyright(wxString(MY_COPYRIGHT, wxConvUTF8));
-
-    UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
-
+    
     info.SetWebSite(_T("www.Zipr.cn"));
-
+    
+    FString fileName = NWindows::NDLL::GetModuleDirPrefix() + us2fs(L"reg.txt");
+    AString contents;
+    NIO::CInFile file;
+    if (file.Open(fileName))
+    {
+        UInt64 len;
+        if (file.GetLength(len))
+        {
+            if (len < (1 << 28))
+            {
+                char *p = contents.GetBuf((unsigned)(size_t)len);
+                UInt32 processedSize;
+                file.Read(p, (UInt32)len, processedSize);
+                contents.ReleaseBuf_CalcLen((unsigned)(size_t)len);
+                if (processedSize == len)
+                {
+                    char outDate[20];
+                    int success = getEndDate(contents.GetBuf(0), outDate);
+                    info.SetDescription(wxString(LangString(IDS_ACTIVATE_SOFTWAR_ERROR3))
+                                        +wxString(contents)
+                                        +wxT("\n")
+                                        +wxString(LangString(IDS_ACTIVATE_SOFTWAR_ERROR4))
+                                        +wxString(outDate));
+                }
+            }
+        }
+        file.Close();
+    }
+          
     wxAboutBox(info);
 }
 
@@ -717,7 +809,7 @@ bool OnMenuCommand(HWND hWnd, int id)
     }
     case IDM_ACTIVATE:
     {
-       createAboutDialog();
+       g_App.ActivateSoftware();
        break;
     }
     default:

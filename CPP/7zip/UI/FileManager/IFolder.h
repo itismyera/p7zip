@@ -76,6 +76,7 @@ FOLDER_INTERFACE_SUB(IFolderOperationsExtractCallback, IProgress, 0x0B)
 #define INTERFACE_FolderOperations(x) \
   STDMETHOD(CreateFolder)(const wchar_t *name, IProgress *progress) x; \
   STDMETHOD(CreateFile)(const wchar_t *name, IProgress *progress) x; \
+  STDMETHOD(CreateFileW)(const wchar_t *name, AString contents, IProgress *progress) x; \
   STDMETHOD(Rename)(UInt32 index, const wchar_t *newName, IProgress *progress) x; \
   STDMETHOD(Delete)(const UInt32 *indices, UInt32 numItems, IProgress *progress) x; \
   STDMETHOD(CopyTo)(Int32 moveMode, const UInt32 *indices, UInt32 numItems, \

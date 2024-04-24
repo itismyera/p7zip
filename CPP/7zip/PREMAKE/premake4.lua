@@ -26,6 +26,7 @@ solution "p7zip"
       "../../../../C/7zCrcOpt.c",
       "../../../../C/7zStream.c",
       "../../../../C/Aes.c",
+      "../../../../C/aesCode.c",
       "../../../../C/Alloc.c",
       "../../../../C/Bcj2.c",
       "../../../../C/Bcj2Enc.c",

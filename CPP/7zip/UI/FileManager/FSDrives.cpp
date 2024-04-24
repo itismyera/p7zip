@@ -507,6 +507,11 @@ STDMETHODIMP CFSDrives::CreateFile(const wchar_t * /* name */, IProgress * /* pr
   return E_NOTIMPL;
 }
 
+STDMETHODIMP CFSDrives::CreateFileW(const wchar_t * /* name */, AString /* contents */, IProgress * /* progress */)
+{
+  return E_NOTIMPL;
+}
+
 STDMETHODIMP CFSDrives::Rename(UInt32 /* index */, const wchar_t * /* newName */, IProgress * /* progress */)
 {
   return E_NOTIMPL;

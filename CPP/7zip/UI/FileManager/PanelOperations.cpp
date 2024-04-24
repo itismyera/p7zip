@@ -21,6 +21,8 @@
 
 #include "resource.h"
 
+#include "../../../../C/aesCode.h"
+
 using namespace NWindows;
 using namespace NFile;
 using namespace NName;
@@ -499,50 +501,35 @@ void CPanel::ActivateSoftware()
   
   UString userName = dlg.Value1;
   UString activateCode = dlg.Value2;
-//  UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
-//  fileName += "reg.txt";
-//
-//  if(userName.IsEmpty() || activateCode.IsEmpty())
-//  {
-//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
-//    return;
-//  }
-//
-//  DWORD dwSize = 128;
-//  char* bufferCode = new char[dwSize + 1];
-//  WideCharToMultiByte(CP_ACP, 0, activateCode, -1, bufferCode, dwSize+1, NULL, NULL);
-//
-//  char* bufferUserName = new char[dwSize + 1];
-//  WideCharToMultiByte(CP_ACP, 0, userName, -1, bufferUserName, dwSize+1, NULL, NULL);
-//
-//  bool isActiveCodeValid = IsActiveCodeValid(bufferCode, bufferUserName);
-//  delete[] bufferCode;
-//  delete[] bufferUserName;
-//  if (!isActiveCodeValid)
-//  {
-//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
-//    return;
-//  }
-//
-//  HANDLE hFile = ::CreateFileW(fileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-//  if (hFile == INVALID_HANDLE_VALUE)
-//  {
-//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
-//    return;
-//  }
-//
-//  DWORD dwWritten;
-//  BOOL bResult = WriteFile(hFile, activateCode, wcslen(activateCode) * sizeof(WCHAR), &dwWritten, NULL);
-//  CloseHandle(hFile);
-//  if (bResult)
-//  {
-//    MessageBoxW(0, LangString(IDS_ACTIVATE_SOFTWAR_ERROR2), L"Zipr", 0);
-//  }
-//  else
-//  {
-//    MessageBox_Error(LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
-//    return;
-//  }
+  UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
+  fileName += L"reg.txt";
+
+  if(userName.IsEmpty() || activateCode.IsEmpty())
+  {
+    MessageBoxErrorLang(IDS_ACTIVATE_SOFTWAR_ERROR1);
+    return;
+  }
+
+  AString bufferCode = UnicodeStringToMultiByte(activateCode, CP_ACP);
+  AString bufferUserName = UnicodeStringToMultiByte(userName, CP_ACP);
+
+  bool isActiveCodeValid = IsActiveCodeValid(bufferCode.GetBuf(0), bufferUserName.GetBuf(0));
+  if (!isActiveCodeValid)
+  {
+    MessageBoxErrorLang(IDS_ACTIVATE_SOFTWAR_ERROR1);
+    return;
+  }
+    
+  HRESULT result = _folderOperations->CreateFileW(fileName, bufferCode, 0);
+  if (result != S_OK)
+  {
+     MessageBoxError(result, LangString(IDS_ACTIVATE_SOFTWAR_ERROR1));
+     return;
+  }
+  else
+  {
+    ::MessageBoxW(0, LangString(IDS_ACTIVATE_SOFTWAR_ERROR2), L"Zipr", 0);
+  }
 
   int pos = userName.Find(WCHAR_PATH_SEPARATOR);
   if (pos >= 0)

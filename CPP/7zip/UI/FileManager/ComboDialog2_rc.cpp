@@ -21,10 +21,10 @@
 
 #include "ComboDialogRes2.h"
 
-class ComboDialogImpl : public NWindows::NControl::CModalDialogImpl
+class ComboDialog2Impl : public NWindows::NControl::CModalDialogImpl
 {
   public:
-   ComboDialogImpl(NWindows::NControl::CModalDialog *dialog,wxWindow * parent,int id) : CModalDialogImpl(dialog, parent, id, wxT("Combo2"))
+    ComboDialog2Impl(NWindows::NControl::CModalDialog *dialog,wxWindow * parent,int id) : CModalDialogImpl(dialog, parent, id, wxT("Combo2"))
   {
 
 	wxBoxSizer* topsizer = new wxBoxSizer(wxVERTICAL);
@@ -52,9 +52,9 @@ private:
 	DECLARE_EVENT_TABLE()
 };
 
-REGISTER_DIALOG(IDD_COMBO2,ComboDialog,0)
+REGISTER_DIALOG(IDD_COMBO2,ComboDialog2,0)
 
-BEGIN_EVENT_TABLE(ComboDialogImpl, wxDialog)
+BEGIN_EVENT_TABLE(ComboDialog2Impl, wxDialog)
 	EVT_BUTTON(wxID_ANY,   CModalDialogImpl::OnAnyButton)
 	EVT_CHECKBOX(wxID_ANY, CModalDialogImpl::OnAnyButton)
 	EVT_MENU(WORKER_EVENT, CModalDialogImpl::OnWorkerEvent)

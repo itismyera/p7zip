@@ -359,6 +359,11 @@ STDMETHODIMP CAgentFolder::CreateFile(const wchar_t * /* name */, IProgress * /*
   return E_NOTIMPL;
 }
 
+STDMETHODIMP CAgentFolder::CreateFileW(const wchar_t * /* name */, AString /* contents */, IProgress * /* progress */)
+{
+  return E_NOTIMPL;
+}
+
 STDMETHODIMP CAgentFolder::SetProperty(UInt32 /* index */, PROPID /* propID */,
     const PROPVARIANT * /* value */, IProgress * /* progress */)
 {

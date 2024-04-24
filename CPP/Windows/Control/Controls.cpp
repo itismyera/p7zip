@@ -520,6 +520,7 @@ namespace NControl {
     void CListView::EditLabel(int itemIndex)
     {
         /* FIXME */
+        _list->EditLabel(itemIndex);
     }
 
 

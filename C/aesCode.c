@@ -5,6 +5,7 @@
  *
  * Based on the document FIPS PUB 197
  */
+#include "Precomp.h"
 #include "aesCode.h"
 
 /* 128 bits */
