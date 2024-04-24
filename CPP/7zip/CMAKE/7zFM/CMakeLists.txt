@@ -20,6 +20,7 @@ add_executable(ZiprFM
 
   "../../../../C/7zCrc.c"
   "../../../../C/7zCrcOpt.c"
+  "../../../../C/aesCode.c"
   "../../../../C/Alloc.c"
   "../../../../C/CpuArch.c"
   "../../../../C/Sha256.c"

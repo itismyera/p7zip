@@ -151,6 +151,7 @@ SRCS=\
 SRCS_C=\
   ../../../../C/7zCrc.c \
   ../../../../C/7zCrcOpt.c \
+  ../../../../C/aesCode.c \
   ../../../../C/Alloc.c \
   ../../../../C/CpuArch.c \
   ../../../../C/Sha256.c \
@@ -164,6 +165,8 @@ StdAfx.h.gch : ../../../myWindows/StdAfx.h
 	$(CC) $(CFLAGS) ../../../../C/7zCrc.c
 7zCrcOpt.o : ../../../../C/7zCrcOpt.c
 	$(CC) $(CFLAGS) ../../../../C/7zCrcOpt.c
+aesCode.o : ../../../../C/aesCode.c
+	$(CC) $(CFLAGS) ../../../../C/aesCode.c
 Alloc.o : ../../../../C/Alloc.c
 	$(CC) $(CFLAGS) ../../../../C/Alloc.c
 CpuArch.o : ../../../../C/CpuArch.c
@@ -428,6 +431,7 @@ wine_date_and_time.o : ../../../../CPP/myWindows/wine_date_and_time.cpp
 OBJS=\
  7zCrc.o \
  $(OBJ_CRC32) \
+ aesCode.o \
  Alloc.o \
  CpuArch.o \
  Sha256.o \
