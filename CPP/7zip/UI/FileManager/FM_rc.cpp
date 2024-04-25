@@ -585,7 +585,7 @@ void rc_MyLoadMenu(HWND hWnd)
 				subMenu->Append( kSetBookmarkMenuID + i, wxString(s));
 			}
 
-			m->Append(12111, _T("&Add folder to Favorites as"), subMenu); // FIXME ID ?
+			m->Append(12111, wxString(LangString(IDS_ADDTOFAVORITES)), subMenu); // FIXME ID ?
 		}
 		m->AppendSeparator();
 		for (int i = 0; i < 10; i++)

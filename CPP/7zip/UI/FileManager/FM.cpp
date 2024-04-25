@@ -722,11 +722,11 @@ int Main1(int argc,TCHAR **argv)
   {
     g_MainPath = argv[1];
   }
-
+    
+  LoadLangOneTime();
   if (!InitInstance (0)) 
     return FALSE;
 
-  LoadLangOneTime();
   MyLoadMenu();
 
   // FIXME : install Accelerators ?

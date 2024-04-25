@@ -85,6 +85,7 @@
 #define IDM_VIEW_TOOLBARS_LARGE_BUTTONS     752
 #define IDM_VIEW_TOOLBARS_SHOW_BUTTONS_TEXT 753
 
+#define IDS_ADDTOFAVORITES       800
 #define IDS_BOOKMARK             801
 
 #define IDM_OPTIONS              900
