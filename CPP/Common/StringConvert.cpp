@@ -1,6 +1,7 @@
 // Common/StringConvert.cpp
 
 #include "StdAfx.h"
+#include <locale.h>
 
 #include "StringConvert.h"
 extern "C"
@@ -137,6 +138,7 @@ UString MultiByteToUnicodeString(const AString &srcString, UINT /* codePage */ )
   if ((global_use_utf16_conversion) && (!srcString.IsEmpty()))
   {
     UString resultString;
+    setlocale(LC_ALL,"");
     int numChars = mbstowcs(resultString.GetBuf(srcString.Len()),srcString,srcString.Len()+1);
     if (numChars >= 0) {
         resultString.ReleaseBuf_SetEnd(numChars);
