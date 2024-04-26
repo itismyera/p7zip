@@ -249,11 +249,15 @@ static void OpenDefaultLang()
         const UString &name = names[index];
         if (!name.IsEmpty())
         {
-          if (LangOpen(g_Lang, dirPrefix + us2fs(name) + FTEXT(".txt")))
-          {
-            g_LangID = name;
-            return;
-          }
+            FString fileName = dirPrefix + us2fs(name) + FTEXT(".txt");
+            if (name.IsEqualTo("en")) {
+                fileName = dirPrefix + us2fs(name) + FTEXT(".ttt");
+            }
+            if (LangOpen(g_Lang, fileName))
+            {
+                g_LangID = name;
+                return;
+            }
         }
       }
     }
