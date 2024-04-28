@@ -481,8 +481,8 @@ void CPanel::CreateFile()
 
 void CPanel::ActivateSoftware()
 {
-  if (!CheckBeforeUpdate(IDS_ACTIVATE_SOFTWAR_ERROR1))
-    return;
+//  if (!CheckBeforeUpdate(IDS_ACTIVATE_SOFTWAR_ERROR1))
+//    return;
 
   CDisableTimerProcessing disableTimerProcessing2(*this);
   CSelectedState state;
@@ -501,8 +501,11 @@ void CPanel::ActivateSoftware()
   
   UString userName = dlg.Value1;
   UString activateCode = dlg.Value2;
-  UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
-  fileName += L"reg.txt";
+//  UString fileName = fs2us(NWindows::NDLL::GetModuleDirPrefix());
+//  fileName += L"reg.txt";
+    
+    const char * home = getenv("HOME");
+    UString fileName = GetUnicodeString(home) + L"/.local/share/ZiprReg.txt";
 
   if(userName.IsEmpty() || activateCode.IsEmpty())
   {

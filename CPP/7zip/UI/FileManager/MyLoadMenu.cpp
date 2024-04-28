@@ -639,7 +639,10 @@ void createAboutDialog(void)
     
     info.SetWebSite(_T("www.Zipr.cn"));
     
-    FString fileName = NWindows::NDLL::GetModuleDirPrefix() + us2fs(L"reg.txt");
+    const char * home = getenv("HOME");
+    FString fileName = us2fs(GetUnicodeString(home) + L"/.local/share/ZiprReg.txt");
+//    FString fileName = NWindows::NDLL::GetModuleDirPrefix() + us2fs(L"reg.txt");
+//    FString fileName = us2fs(L"/home/.local/share/ZiprReg.txt");
     AString contents;
     NIO::CInFile file;
     if (file.Open(fileName))
