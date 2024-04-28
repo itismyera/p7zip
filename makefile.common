@@ -52,8 +52,10 @@ app: common 7zFM 7zG 7z sfx
 	cp -rp DOC/MANUAL    Zipr.app/Contents/MacOS/help
 
 LangAndHelp:
-	cd bin ; rm -f Lang ; ln -s ../GUI/Lang   .
-	cd bin ; rm -f help ; ln -s ../DOC/MANUAL help
+	#cd bin ; rm -f Lang ; ln -s ../GUI/Lang   .
+	#cd bin ; rm -f help ; ln -s ../DOC/MANUAL help
+	cd bin ; rm -f Lang ; cp -rp ../GUI/Lang  .
+	cd bin ; rm -f help ; cp -rp ../DOC/MANUAL help
 
 clean: clean_C
 	rm -fr bin
