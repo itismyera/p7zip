@@ -19,6 +19,10 @@ installShared()
 
 rm -fr "Zipr.AppDir"
 mkdir  "Zipr.AppDir"
+cp GUI/ZiprFM.png "./Zipr.AppDir/ZiprFM.png"
+cp GUI/AppRun "./Zipr.AppDir/AppRun"
+chmod 755 "./Zipr.AppDir/AppRun"
+cp GUI/ZiprFM.desktop "./Zipr.AppDir/ZiprFM.desktop"
 # global install
 DEST_HOME=./Zipr.AppDir/usr/local
 # for testing 
